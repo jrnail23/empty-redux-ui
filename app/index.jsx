@@ -8,8 +8,16 @@ import 'isomorphic-fetch'
 import '../style.css'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import Root from './containers/root'
+import configureStore from './store/configure-store'
 
-const Hello = ({name}) => (<div>Hello {name}!</div>)
+const store = configureStore()
+const history = syncHistoryWithStore(browserHistory, store)
 
-ReactDOM.render(<Hello name='James' />, document.getElementById('app'))
+render(
+  <Root store={store} history={history} />,
+  document.getElementById('root')
+)

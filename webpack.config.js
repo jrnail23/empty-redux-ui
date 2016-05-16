@@ -1,12 +1,17 @@
 const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
   entry: './app/index.jsx',
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/static/',
     filename: 'bundle.js'
   },
   devTool: 'cheap-module-source-map',
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
       {
@@ -22,5 +27,6 @@ module.exports = {
   },
   plugins: [
     new webpack.NoErrorsPlugin()
+    // ,new webpack.HotModuleReplacementPlugin()
   ]
 }
