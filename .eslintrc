@@ -1,0 +1,14 @@
+{
+  "root" true,
+  "parser": "babel-eslint",
+  "plugins": [
+    "babel"
+  ],
+  "globals": {
+    "fetch": false
+  },
+  "rules": {
+    "arrow-parens": 0,
+    "babel/arrow-parens": 1
+  }
+}

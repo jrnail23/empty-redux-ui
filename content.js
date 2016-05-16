@@ -1,1 +1,1 @@
-export default 'It works from content.js'
+export default () => Promise.resolve('It works from content.js as a promise!')
