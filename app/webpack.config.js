@@ -1,8 +1,12 @@
+'use strict'
 const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-  entry: './app/index.jsx',
+  entry: [
+    'webpack-hot-middleware/client',
+    './app/index.jsx'
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/static/',
@@ -26,7 +30,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.NoErrorsPlugin()
-    // ,new webpack.HotModuleReplacementPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }

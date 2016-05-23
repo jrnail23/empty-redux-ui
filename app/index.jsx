@@ -5,19 +5,24 @@ global.Promise = require('bluebird')
 
 import 'isomorphic-fetch'
 
-import '../style.css'
+import './style.css'
 
 import React from 'react'
 import { render } from 'react-dom'
-import { browserHistory } from 'react-router'
+import { Router } from 'react-router'
+import { createHistory } from 'history'
 import { syncHistoryWithStore } from 'react-router-redux'
-import Root from './containers/root'
 import configureStore from './store/configure-store'
+import { Provider } from 'react-redux'
+import routes from './routes'
 
+const history = createHistory()
 const store = configureStore()
-const history = syncHistoryWithStore(browserHistory, store)
+const syncedHistory = syncHistoryWithStore(history, store)
 
 render(
-  <Root store={store} history={history} />,
+  <Provider store={store}>
+    <Router history={syncedHistory} routes={routes} />
+  </Provider>,
   document.getElementById('root')
 )

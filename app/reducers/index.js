@@ -1,8 +1,10 @@
-import { routerReducer as routing } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux'
 import { combineReducers } from 'redux'
+import emptyReducer from './empty'
 
 const rootReducer = combineReducers({
-  routing
+  empty: emptyReducer,
+  routing: routerReducer
 })
 
 export default rootReducer

@@ -1,12 +1,12 @@
 {
-  "name": "json-crud-es6-ui",
+  "name": "empty-ui",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app/index.jsx",
   "scripts": {
     "webpack": "webpack --progress --colors",
     "webpack-watch": "npm run webpack -- --watch",
-    "start": "webpack-dev-server --progress --colors",
+    "start": "node app/server.js",
     "test": "mocha --reporter progress",
     "standard": "standard --verbose"
   },
@@ -27,6 +27,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "bluebird": "^3.3.5",
     "express": "^4.13.4",
+    "history": "^2.1.1",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "eslint": "^2.10.2",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-promise": "^1.1.0",
     "eslint-plugin-react": "^5.0.1",
@@ -51,7 +53,8 @@
     "redux-devtools-log-monitor": "^1.0.11",
     "standard": "^7.0.0",
     "style-loader": "^0.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
   },
   "standard": {
     "parser": "babel-eslint"
